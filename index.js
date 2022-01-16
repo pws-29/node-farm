@@ -1,7 +1,10 @@
+// Core modules
 const http = require('http');
 const url = require('url');
 const fs = require('fs');
-
+// 3th part modules
+const slugify = require('slugify');
+// Personal Modules
 const replaceTemplate = require('./modules/replaceTemplate');
 
 // Executado apenas uma vez, por isso Síncrono
@@ -12,6 +15,10 @@ const tempProduct = fs.readFileSync(`${__dirname}/templates/template-product.htm
 
 const data = fs.readFileSync(`${__dirname}/dev-data/data.json`, 'utf-8');
 const dataObj = JSON.parse(data);
+
+// // Mostrando slugs
+// const slugs = dataObj.map(el => slugify(el.productName, { lower: true }));
+
 
 // Server and Routs
 // Overview page
